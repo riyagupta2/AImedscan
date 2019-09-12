@@ -11,6 +11,7 @@
 	<div class="container">
         <div id="content" style="margin-top:2em">
 			{% block content1 %}
+			{% if current_user.is_authenticated %}
 			<div>
 				<form id="upload-file" method="post" enctype="multipart/form-data">
 						<label for="imageUpload" class="upload-label">
@@ -36,6 +37,7 @@
 					</h3>
 				
 				</div>
+				{% endif %}
 			{% endblock %}</div>
     </div>
 	
