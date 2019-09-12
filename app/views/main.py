@@ -68,7 +68,7 @@ def upload():
         f.save(file_path)
 
         # Make prediction
-        preds = model_predict("app/views/uploads/download.jpeg", model)
+        preds = model_predict(file_path, model)
         os.remove(file_path)#removes file from the server after prediction has been returned
 
         # Arrange the correct return according to the model. 
