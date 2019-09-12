@@ -76,8 +76,10 @@ def upload():
         str1 = 'Pneumonia'
         str2 = 'Normal'
         if preds == 1:
+            print(str1)
             return str1
         else:
+            print(str2)
             return str2
     return None
 
