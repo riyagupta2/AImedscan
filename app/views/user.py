@@ -54,7 +54,7 @@ def signup():
         # Send back to the home page
         flash('Check your emails to confirm your email address.', 'positive')
         return redirect(url_for('index'))
-    return render_template('user/signup.html', form=form, title='Sign up')
+    return render_template('user/signup2.html', form=form, title='Sign up')
 
 
 @userbp.route('/confirm/<token>', methods=['GET', 'POST'])
@@ -88,21 +88,21 @@ def signin():
                 login_user(user)
                 # Send back to the home page
                 flash('Succesfully signed in.', 'positive')
-                return redirect(url_for('index'))
+                return redirect(url_for('index2'))
             else:
                 flash('The password you have entered is wrong.', 'negative')
                 return redirect(url_for('userbp.signin'))
         else:
             flash('Unknown email address.', 'negative')
             return redirect(url_for('userbp.signin'))
-    return render_template('user/signin.html', form=form, title='Sign in')
+    return render_template('user/signin2.html', form=form, title='Sign in')
 
 
 @userbp.route('/signout')
 def signout():
     logout_user()
     flash('Succesfully signed out.', 'positive')
-    return redirect(url_for('index'))
+    return redirect(url_for('index2'))
 
 
 @userbp.route('/account')
@@ -130,7 +130,7 @@ def forgot():
             email.send(user.email, subject, html)
             # Send back to the home page
             flash('Check your emails to reset your password.', 'positive')
-            return redirect(url_for('index'))
+            return redirect(url_for('index2'))
         else:
             flash('Unknown email address.', 'negative')
             return redirect(url_for('userbp.forgot'))

@@ -49,10 +49,15 @@ def model_predict(img_path, model):
     return preds
 
 
-@app.route('/', methods=['GET'])
-def index():
-    # Main page
-    return render_template('index.html')
+# @app.route('/', methods=['GET'])
+# def index():
+#     # Main page
+#     return render_template('index.html')
+
+@app.route('/')
+def index2():
+    return render_template('index2.html', title='Home1')
+
 
 
 @app.route('/predict', methods=['GET', 'POST'])
@@ -85,10 +90,6 @@ def upload():
 
 
 # @app.route('/')
-# @app.route('/index')
-# def index():
-#     return render_template('index.html', title='Home')
-
 
 @app.route('/map')
 def map():
