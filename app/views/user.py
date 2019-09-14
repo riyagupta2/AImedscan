@@ -51,9 +51,10 @@ def signup():
                                confirm_url=confirmUrl)
         # Send the email to user
         email.send(user.email, subject, html)
+            
         # Send back to the home page
         flash('Check your emails to confirm your email address.', 'positive')
-        return redirect(url_for('index'))
+        return redirect(url_for('userbp.signin'))
     return render_template('user/signup2.html', form=form, title='Sign up')
 
 
@@ -88,7 +89,7 @@ def signin():
                 login_user(user)
                 # Send back to the home page
                 flash('Succesfully signed in.', 'positive')
-                return redirect(url_for('index2'))
+                return redirect(url_for('index'))
             else:
                 flash('The password you have entered is wrong.', 'negative')
                 return redirect(url_for('userbp.signin'))
@@ -102,7 +103,7 @@ def signin():
 def signout():
     logout_user()
     flash('Succesfully signed out.', 'positive')
-    return redirect(url_for('index2'))
+    return redirect(url_for('index'))
 
 
 @userbp.route('/account')
@@ -130,7 +131,7 @@ def forgot():
             email.send(user.email, subject, html)
             # Send back to the home page
             flash('Check your emails to reset your password.', 'positive')
-            return redirect(url_for('index2'))
+            return redirect(url_for('index'))
         else:
             flash('Unknown email address.', 'negative')
             return redirect(url_for('userbp.forgot'))

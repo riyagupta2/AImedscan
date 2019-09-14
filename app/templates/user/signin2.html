@@ -3,13 +3,13 @@
 {% block content %}
 <div class="wrapper">
 
-	<div class="ui form-user center raised very padded text container segment">
+	<div class="container">
 		<form class="ui form" action="/user/signin" method="post">
 			<h4 class="ui dividing header">Login</h4>
 	    	{{ m.render_field(form.email) }}
 	    	{{ m.render_field(form.password) }}
 		  	{{ form.csrf_token }}
-		  	<button class="ui primary button" type="submit">Confirm</button>
+		  	<input type="submit">
 		  	<a href="/user/forgot">
 			  	<div class="ui floated right basic red button">
 	        		I forgot my password

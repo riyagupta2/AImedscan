@@ -55,7 +55,7 @@ def model_predict(img_path, model):
 #     return render_template('index.html')
 
 @app.route('/')
-def index2():
+def index():
     return render_template('index2.html', title='Home1')
 
 
