@@ -80,6 +80,7 @@ def confirm(token):
 @userbp.route('/signin', methods=['GET', 'POST'])
 def signin():
     form = user_forms.Login()
+    error = None
     if form.validate_on_submit():
         user = models.User.query.filter_by(email=form.email.data).first()
         # Check the user exists
@@ -91,12 +92,14 @@ def signin():
                 flash('Succesfully signed in.', 'positive')
                 return redirect(url_for('index'))
             else:
+                error = 'The password you have entered is wrong.'
                 flash('The password you have entered is wrong.', 'negative')
                 return redirect(url_for('userbp.signin'))
         else:
+            error = 'Unknown email address.' 
             flash('Unknown email address.', 'negative')
             return redirect(url_for('userbp.signin'))
-    return render_template('user/signin2.html', form=form, title='Sign in')
+    return render_template('user/signin2.html', form=form, title='Sign in', error=error)
 
 
 @userbp.route('/signout')
