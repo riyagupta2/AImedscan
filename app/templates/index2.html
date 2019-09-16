@@ -17,6 +17,21 @@
 					<div id="imagePreview">
 					</div>
 				</div>
+				<form action="/user/charge" method="post">
+					<article>
+					  <label>
+						<span>Amount is $5.00</span>
+					  </label>
+					</article>
+				
+					<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+							data-key="{{ key }}"
+							data-description="A Flask Charge"
+							data-amount="500"
+						data-email="{{ email }}"
+							data-locale="auto"
+							style="display:none;"></script>
+				</form>
 				<div>
 					<button type="button" class="btn btn-primary btn-lg " id="btn-predict">Predict!</button>
 				</div>

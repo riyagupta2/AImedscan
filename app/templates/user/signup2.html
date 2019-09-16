@@ -2,19 +2,26 @@
 
 {% block content %}
 <div class="wrapper">
+		<div class="container">
 
-	<div class="container">
-		<form class="ui form" action="/user/signup" method="post">
-			<h4 class="ui dividing header">Sign up</h4>
-	    	{{ m.render_field(form.first_name) }}
-	    	{{ m.render_field(form.last_name) }}
-	    	{{ m.render_field(form.phone) }}
-	    	{{ m.render_field(form.email) }}
-	    	{{ m.render_field(form.password) }}
-            {{ m.render_field(form.confirm) }}
-		  	{{ form.csrf_token }}
-		  	<input type="submit">
-		</form>
+				<div class="sign-in-form-main">
+					<div class="col-lg-6 col-md-offset-3">
+				<form class="ui form" action="/user/signup" method="post">
+					<h4 class="ui dividing header heading-main">Login</h4>
+					{{ m.render_field(form.first_name) }}
+					{{ m.render_field(form.last_name) }}
+					{{ m.render_field(form.phone) }}
+					{{ m.render_field(form.email) }}
+					{{ m.render_field(form.password) }}
+					{{ m.render_field(form.confirm) }}
+					  {{ form.csrf_token }}
+					<input type="submit" class="submit-signin-btn">
+					 
+				</form>
+			</div>
+			</div>
+			</div>
+		</div>
 	</div>
 </div>
 {% endblock %}

@@ -93,6 +93,17 @@
 	  input[type=submit]:hover {
 		background-color: #2056ac;
 	  }
+	  .container1 {
+		border-radius: 5px;
+		background-color: #f2f2f2;
+		padding-left: 40px;
+		padding-right: 40px;
+		padding-top: 40px;
+	  }
+	  .sign-in-form-main{padding:70px 0px;}
+.forgot-btn{width: 100%;border-radius: 4px;text-align: center;margin-top: 1em !important;}
+	.submit-signin-btn{margin-top: 1em !important;}
+	.heading-main {text-align: center;font-size: 42px;color: #2056ac;}
 /*********************************************************************************/
 /* Form Style                                                                    */
 /*********************************************************************************/
