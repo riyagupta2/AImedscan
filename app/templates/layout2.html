@@ -54,7 +54,7 @@ Released   : 20140322
 				<!-- <li><a href="#" accesskey="5" title="">Contact Us</a></li> -->
 
 				{% if current_user.is_authenticated %}
-				<li><a href="/user/signout" accesskey="4" title="">Sign out</a></li>
+				<li class="active"><a href="/user/signout" accesskey="4" title="">Sign out</a></li>
 				{% else %}
 				<li><a href="/user/signup" accesskey="2" title="">Sign up</a></li>
 				<li><a href="/user/signin" accesskey="3" title="">Sign in</a></li>
