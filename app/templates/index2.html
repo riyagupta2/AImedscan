@@ -5,11 +5,13 @@
 <div class="wrapper">
 	
 	<div>
+		<div class="col-lg-6 col-md-offset-3">
 		<form id="upload-file" method="post" enctype="multipart/form-data">
+				<h4>Please upload Image to get the prediction</h4>
 				<label for="imageUpload" class="upload-label">
 					Select Image
 				</label>
-				<input type="file" name="file" class="upload-label" id="imageUpload" accept=".png, .jpg, .jpeg">
+				<input type="file" style="display:none;" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
 		</form>
 		
 			<div class="image-section" style="display:none;">
@@ -46,6 +48,8 @@
 
 
 		</div>
+		</div>
+		
 </div>
 	
 {% else %}
