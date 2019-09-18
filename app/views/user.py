@@ -188,7 +188,7 @@ def charge():
     user.paid = 1
     db.session.commit()
     # do anything else, like execute shell command to enable user's service on your app
-    return render_template('user/index2.html', amount=amount)
+    return render_template('user/index2.html')
 
 @app.route('/api/payFail', methods=['POST', 'GET'])
 def payFail():
