@@ -36,6 +36,12 @@ print('Model loaded. Start serving...')
 #from keras.applications.resnet50 import ResNet50
 #model = ResNet50(weights='imagenet')
 #print('Model loaded. Check http://127.0.0.1:5000/')
+stripe_keys = {
+	'secret_key': "sk_test_zJuSsNUL5yB4Vy0irwY0urHe",
+	'publishable_key': "pk_test_9h0f2uum2Ym96ZlIky9Cbuwh"
+}
+
+stripe.api_key = stripe_keys['secret_key']
 
 def model_predict(img_path, model):
     img = image.load_img(img_path, target_size=(64, 64)) #target_size must agree with what the trained model expects!!
@@ -56,7 +62,7 @@ def model_predict(img_path, model):
 
 @app.route('/')
 def index():
-    return render_template('index2.html', title='home')
+    return render_template('index2.html', title='home',key=stripe_keys['publishable_key'])
 
 
 
