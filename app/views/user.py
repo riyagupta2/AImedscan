@@ -11,8 +11,8 @@ import json
 from json import dumps
 
 stripe_keys = {
-	'secret_key': "sk_test_GvpPOs0XFxeP0fQiWMmk6HYe",
-	'publishable_key': "pk_test_UU62FhsIB6457uPiUX6mJS5x"
+	'secret_key': "sk_test_zJuSsNUL5yB4Vy0irwY0urHe",
+	'publishable_key': "pk_test_9h0f2uum2Ym96ZlIky9Cbuwh"
 }
 
 stripe.api_key = stripe_keys['secret_key']
