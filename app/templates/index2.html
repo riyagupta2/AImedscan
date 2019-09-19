@@ -21,13 +21,13 @@
 				</div>
 				{% if not current_user.paid %}
 			
-				<form action="/" method="">
+				<form action="/user/charge" method="post">
 					<article>
 					  <label>
 						<span>Amount is $10.00</span>
 					  </label>
 					</article>
-				
+					
 					<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 							data-key="{{ key }}"
 							data-description="Pneumonia Prediction based on AI "

@@ -62,21 +62,9 @@ def model_predict(img_path, model):
 #     # Main page
 #     return render_template('index.html')
 
-@app.route('/',methods=['POST','GET'])
+@app.route('/')
 def index():
-    if request.method == 'POST':
-        amount = 1000
-        customer = stripe.Customer.create(email=current_user.email, source=request.form['stripeToken'])
-        charge = stripe.Charge.create(
-            customer=customer.id,
-            amount=amount,
-            currency='usd',
-            description='Service Plan'
-        )
-        user = models.User.query.filter_by(email=current_user.email).first()
-        user.paid = 1
-        db.session.commit()
-    return render_template('index2.html', title='home',key=stripe_keys['publishable_key'])
+    return render_template('index2.html', title='home',key=stripe_keys['publishable_key'],file='file')
 
 
 
