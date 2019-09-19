@@ -8,21 +8,21 @@
 					<div class="col-lg-6 col-md-offset-3">
 				<form class="ui form" action="/user/signup" method="post">
 					<h4 class="ui dividing header heading-main">Signup</h4>
-					{% with messages = get_flashed_messages(with_categories=true) %}
+					<!-- {% with messages = get_flashed_messages(with_categories=true) %}
 						{% if messages %}
 							<ul class=flashes>
-							<!-- {% for category, message in messages %} -->
-							<div class="alert alert-success alert-dismissible fade show" role="alert">
+							 {% for category, message in messages %} -->
+							<!--<div class="alert alert-success alert-dismissible fade show" role="alert">
 								<span>{{ messages }}</span>
 								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
-							<!-- <li class="alert{{ category }}" >{{ message|capitalize }}</li> -->
+							 <li class="alert{{ category }}" >{{ message|capitalize }}</li> -->
 							<!-- {% endfor %} -->
-							</ul>
+							<!--</ul>
 						{% endif %}
-					{% endwith %}			
+					{% endwith %}			 -->
 					{{ m.render_field(form.first_name) }}
 					{{ m.render_field(form.last_name) }}
 					{{ m.render_field(form.phone) }}

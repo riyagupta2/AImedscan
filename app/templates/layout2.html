@@ -63,7 +63,23 @@ Released   : 20140322
 		</div>
 	</div>
 </div>
+{% with messages = get_flashed_messages(with_categories=true) %}
+	{% if messages %}
+
+		<!-- {% for category, message in messages %} -->
+		<div class="alert alert-success alert-dismissible fade show" role="alert">
+			<span>{{ message }}</span>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+		</div>
+					<!-- <li class="alert{{ category }}" >{{ message|capitalize }}</li> -->
+					<!-- {% endfor %} -->
+					
+	{% endif %}
+{% endwith %}
 {% block content %}
+
 {% endblock %}
 <div id="copyright">
 	<p>&copy; Untitled. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
