@@ -21,13 +21,13 @@
 				</div>
 				{% if not current_user.paid %}
 			
-				<form action="/user/charge" method="post">
+				<form action="{{ url_for('charge') }}" method="post">
 					<article>
 					  <label>
 						<span>Amount is $10.00</span>
 					  </label>
 					</article>
-					<input type="hidden" name="file" id="imageUpload" value="imageUpload" >
+					
 					<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 							data-key="{{ key }}"
 							data-description="Pneumonia Prediction based on AI "
@@ -45,7 +45,7 @@
 		
 			<div class="loader" style="display:none;"></div>
 			<h3 id="result">
-				<span> </span>
+				<span> {{ val }}</span>
 			</h3>
 			
 

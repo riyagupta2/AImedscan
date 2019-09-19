@@ -172,7 +172,7 @@ def pay():
     	return render_template('user/buy.html', key=stripe_keys['publishable_key'], email=current_user.email)
     return "You already paid."
 
-@app.route('/user/charge', methods=['POST'])
+@app.route('/user/charge',methods=['GET', 'POST'])
 @login_required
 def charge():
     # Amount in cents
@@ -187,8 +187,9 @@ def charge():
     user = models.User.query.filter_by(email=current_user.email).first()
     user.paid = 1
     db.session.commit()
+    
     # do anything else, like execute shell command to enable user's service on your app
-    return render_template('index2.html',file='file')
+    return render_template('index2.html')
 
 @app.route('/api/payFail', methods=['POST', 'GET'])
 def payFail():

@@ -63,10 +63,12 @@ def model_predict(img_path, model):
 #     return render_template('index.html')
 
 @app.route('/')
-def index():
-    return render_template('index2.html', title='home',key=stripe_keys['publishable_key'],file='file')
+def index(): 
+    return render_template('index2.html', title='home',key=stripe_keys['publishable_key'])
 
-
+# @app.route('/')
+# def index():
+#     return redirect(url_for('/user/index2'))
 
 @app.route('/predict', methods=['GET', 'POST'])
 def upload():
