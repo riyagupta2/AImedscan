@@ -21,7 +21,7 @@
 				</div>
 				{% if not current_user.paid %}
 			
-				<form action="/user/charge" method="post">
+				<form action="/" method="">
 					<article>
 					  <label>
 						<span>Amount is $10.00</span>
@@ -35,7 +35,7 @@
 						data-email="{{ email }}"
 							data-locale="auto"
 							style="display:none;"></script>
-				</form>	
+				</form>		
 				{% else %}
 				<div>
 					<button type="button" class="btn btn-primary btn-lg " id="btn-predict">Predict!</button>
