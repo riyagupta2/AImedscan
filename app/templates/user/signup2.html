@@ -12,7 +12,7 @@
 						{% if messages %}
 							<ul class=flashes>
 							{% for category, message in messages %}
-							<li class="{{ category }}" style="color:red;">{{ message }}</li>
+							<li class="alert {{ category }}">{{ message|capitalize }}</li>
 							{% endfor %}
 							</ul>
 						{% endif %}
