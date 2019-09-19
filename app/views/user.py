@@ -99,7 +99,7 @@ def signin():
             error = 'Unknown email address.' 
             flash('Unknown email address.', 'negative')
             return redirect(url_for('userbp.signin'))
-    return render_template('user/signin2.html', form=form, title='Sign in', error=error)
+    return render_template('user/signin2.html', form=form, title='Sign in')
 
 
 @userbp.route('/signout')
@@ -188,7 +188,7 @@ def charge():
     user.paid = 1
     db.session.commit()
     # do anything else, like execute shell command to enable user's service on your app
-    return redirect('index2.html')
+    return render_template('index2.html',file='file')
 
 @app.route('/api/payFail', methods=['POST', 'GET'])
 def payFail():

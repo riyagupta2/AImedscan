@@ -11,12 +11,18 @@
 					{% with messages = get_flashed_messages(with_categories=true) %}
 						{% if messages %}
 							<ul class=flashes>
-							{% for category, message in messages %}
-							<li class="alert {{ category }}">{{ message|capitalize }}</li>
-							{% endfor %}
+							<!-- {% for category, message in messages %} -->
+							<div class="alert alert-success alert-dismissible fade show" role="alert">
+								<span>{{ messages }}</span>
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<!-- <li class="alert{{ category }}" >{{ message|capitalize }}</li> -->
+							<!-- {% endfor %} -->
 							</ul>
 						{% endif %}
-					{% endwith %}					
+					{% endwith %}			
 					{{ m.render_field(form.first_name) }}
 					{{ m.render_field(form.last_name) }}
 					{{ m.render_field(form.phone) }}

@@ -12,11 +12,17 @@
 			<h4 class="ui dividing header heading-main">Login</h4>
 			{% with messages = get_flashed_messages(with_categories=true) %}
 				{% if messages %}
-					<ul class=flashes>
-					{% for category, message in messages %}
-					<li class="alert {{ category }}" >{{ message|capitalize }}</li>
-					{% endfor %}
-					</ul>
+					
+					<!-- {% for category, message in messages %} -->
+					<div class="alert alert-success alert-dismissible fade show" role="alert">
+						<span>{{ message }}</span>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<!-- <li class="alert{{ category }}" >{{ message|capitalize }}</li> -->
+					<!-- {% endfor %} -->
+					
 				{% endif %}
 			{% endwith %}
 
