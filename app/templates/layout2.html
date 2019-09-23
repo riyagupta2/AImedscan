@@ -65,15 +65,20 @@ Released   : 20140322
 </div>
 {% with messages = get_flashed_messages(with_categories=true) %}
 	{% if messages %}
-
-		<!-- {% for category, message in messages %} -->
+		{% for category, message in messages %}
+			<div class="alert alert-{{ category }} alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<!-- <strong>Title</strong> --> {{ message }}
+			</div>
+		{% endfor %}
+			<!-- {% for category, message in messages %}
 		<div class="alert alert-success alert-dismissible fade show" role="alert">
 			<span>{{ message }}</span>
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 		</div>
-					<!-- <li class="alert{{ category }}" >{{ message|capitalize }}</li> -->
+					 <li class="alert{{ category }}" >{{ message|capitalize }}</li> -->
 					<!-- {% endfor %} -->
 					
 	{% endif %}
