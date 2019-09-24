@@ -106,11 +106,11 @@ def signin():
                 flash('Succesfully signed in.', 'positive')
                 return redirect(url_for('index'))
             else:
-                error = 'The password you have entered is wrong.'
+                #error = 'The password you have entered is wrong.'
                 flash('The password you have entered is wrong.', 'negative')
                 return redirect(url_for('userbp.signin'))
         else:
-            error = 'Unknown email address.' 
+            #error = 'Unknown email address.' 
             flash('Unknown email address.', 'negative')
             return redirect(url_for('userbp.signin'))
     return render_template('user/signin2.html', form=form, title='Sign in')

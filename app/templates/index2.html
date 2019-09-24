@@ -20,49 +20,19 @@
 					</div>
 				</div>
 				{% if not current_user.paid %}
-					<button type="button" class="btn btn-primary btn-lg " id="btn-predict-before"><a href="/paypal/redirect"> Pay here</a>></button>
-				<!-- <form action="{{ url_for('charge') }}" method="post">
-					<article>
-					  <label>
-						<span>Amount is $10.00</span>
-					  </label>
-					</article>
-					
-					<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-							data-key="{{ key }}"
-							data-description="Pneumonia Prediction based on AI "
-							data-amount="1000"
-						data-email="{{ email }}"
-							data-locale="auto"
-							style="display:none;"></script>
-				</form>		 -->
-				<!-- <form name="topaypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-					<input type="hidden" name="cmd" value="_xclick-subscriptions">
-					<input type="hidden" name="custom" value="{{session['username']}}"/>
-					<input type="hidden" name="business" value="harrison-facilitator@pythonprogramming.net">
-					<input type="hidden" name="item_name" value="subscription button">
-					<input type="hidden" name="item_number" value="500">
-					<input type="hidden" name="no_shipping" value="1">
-					<input type="hidden" name="a3" value="10.00">
-					<input type="hidden" name="p3" value="1">
-					<input type="hidden" name="t3" value="M">
-					<input type="hidden" name="src" value="1">
-					<input type="hidden" name="sra" value="1">
-					<input type="hidden" name="return" value="http://127.0.0.1:5000/success">
-					<input type="hidden" name="cancel_return" value="http://127.0.0.1:5000/">
-					<input type="hidden" name="notify_url" value="http://127.0.0.1:5000/ipn/">
-					<input type="submit" value="Subscribe" name="submit" title="PayPal - The safer, easier way to pay online!" class="btn btn-primary">
-				</form>	 -->
+					<a href="/paypal/redirect">
+						<button type="button"  class="btn btn-primary btn-lg "> Pay here</button>
+					</a>
 				{% else %}
-				<div>
-					<button type="button" class="btn btn-primary btn-lg " id="btn-predict">Predict!</button>
-				</div>
+					<div>
+						<button type="button" class="btn btn-primary btn-lg " id="btn-predict">Predict!</button>
+					</div>
 				{% endif %}
 			</div>
 		
 			<div class="loader" style="display:none;"></div>
 			<h3 id="result">
-				<span> {{ val }}</span>
+				<span> </span>
 			</h3>
 			
 
@@ -81,73 +51,7 @@
 	</div>
 			<p>This is <strong>Undeviating</strong>, a free, fully standards-compliant CSS template designed by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>. The photos in this template are from <a href="http://fotogrph.com/"> Fotogrph</a>. This free template is released under the <a href="http://templated.co/license">Creative Commons Attribution</a> license, so you're pretty much free to do whatever you want with it (even use it commercially) provided you give us credit for it. Have fun :) </p>
 		</div>
-		<!-- <div id="three-column" class="container">
-			<div><span class="arrow-down"></span></div>
-			<div id="tbox1">
-				<div class="title">
-					<h2>Maecenas luctus</h2>
-				</div>
-				<p>Nullam non wisi a sem semper eleifend. Donec mattis libero eget urna. Duis pretium velit ac suscipit mauris. Proin eu wisi suscipit nulla suscipit interdum.</p>
-				<a href="#" class="button">Learn More</a> </div>
-			<div id="tbox2">
-				<div class="title">
-					<h2>Integer gravida</h2>
-				</div>
-				<p>Proin eu wisi suscipit nulla suscipit interdum. Nullam non wisi a sem semper suscipit eleifend. Donec mattis libero eget urna. Duis  velit ac mauris.</p>
-				<a href="#" class="button">Learn More</a> </div>
-			<div id="tbox3">
-				<div class="title">
-					<h2>Praesent mauris</h2>
-				</div>
-				<p>Donec mattis libero eget urna. Duis pretium velit ac mauris. Proin eu wisi suscipit nulla suscipit interdum. Nullam non wisi a sem suscipit  eleifend.</p>
-				<a href="#" class="button">Learn More</a> </div>
-		</div>
-		<div id="portfolio" class="container">
-			<div class="column1">
-				<div class="box">
-				<h3>Vestibulum venenatis</h3>
-					<p>Fermentum nibh augue praesent a lacus at urna congue rutrum.</p>
-			<a href="#" class="button button-small">Etiam posuere</a> </div>
-			</div>
-			<div class="column2">
-				<div class="box">
-				<h3>Praesent scelerisque</h3>
-					<p>Vivamus fermentum nibh in augue praesent urna congue rutrum.</p>
-			<a href="#" class="button button-small">Etiam posuere</a> </div>
-			</div>
-			<div class="column3">
-				<div class="box">
-				<h3>Donec dictum metus</h3>
-					<p>Vivamus fermentum nibh in augue praesent urna congue rutrum.</p>
-			<a href="#" class="button button-small">Etiam posuere</a> </div>
-			</div>
-			<div class="column4">
-				<div class="box">
-				<h3>Mauris vulputate dolor</h3>
-					<p>Rutrum fermentum nibh in augue praesent urna congue rutrum.</p>
-			<a href="#" class="button button-small">Etiam posuere</a> </div>
-			</div>
-		</div>
-	</div>
-	<div id="footer">
-		<div class="container">
-			<div class="fbox1">
-			<span class="icon icon-map-marker"></span>
-				<span>1234 Fictional Road Suite #789
-				<br />Nashville TN 00000</span>
-			</div>
-			<div class="fbox1">
-				<span class="icon icon-phone"></span>
-				<span>
-					Telephone: +1 800 123 4657
-				</span>
-			</div>
-			<div class="fbox1">
-				<span class="icon icon-envelope"></span>
-				<span>businessname@business.com</span>
-			</div>
-		</div>
-	</div> -->
+		
 	
 {% endif %}
 {% endblock %}
