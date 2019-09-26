@@ -50,14 +50,14 @@ Released   : 20140322
 		</div>
 		<div id="menu">
 			<ul>
-				<li class="active"><a href="/" accesskey="1" title="">Homepage</a></li>
+				<li class="btn1 active"><a href="/" accesskey="1" title="">Homepage</a></li>
 				<!-- <li><a href="#" accesskey="5" title="">Contact Us</a></li> -->
 
 				{% if current_user.is_authenticated %}
-				<li><a href="/user/signout" accesskey="4" title="">Sign out</a></li>
+				<li class="btn1" ><a href="/user/signout" accesskey="4" title="">Sign out</a></li>
 				{% else %}
-				<li><a href="/user/signup" accesskey="2" title="">Sign up</a></li>
-				<li><a href="/user/signin" accesskey="3" title="">Sign in</a></li>
+				<li class="btn1"><a href="/user/signup" accesskey="2" title="">Sign up</a></li>
+				<li class="btn1"><a href="/user/signin" accesskey="3" title="">Sign in</a></li>
 				{% endif %}
 			</ul>
 		</div>
@@ -98,19 +98,21 @@ Released   : 20140322
 {% block content %}
 
 {% endblock %}
-<div id="copyright">
-	<p>&copy; Untitled. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
-	<ul class="contact">
-		<li><a href="#" class="icon icon-twitter"><span>Twitter</span></a></li>
-		<li><a href="#" class="icon icon-facebook"><span></span></a></li>
-		<li><a href="#" class="icon icon-dribbble"><span>Pinterest</span></a></li>
-		<li><a href="#" class="icon icon-tumblr"><span>Google+</span></a></li>
-		<li><a href="#" class="icon icon-rss"><span>Pinterest</span></a></li>
-	</ul>
-</div>
+
 </body>
 <footer>
 		<script src="{{ url_for('static', filename='js/main.js') }}" type="text/javascript"></script>    
 </footer>
-
+<script>
+	// Add active class to the current button (highlight it)
+	var header = document.getElementById("menu");
+	var btns = header.getElementsByClassName("btn1");
+	for (var i = 0; i < btns.length; i++) {
+	  btns[i].addEventListener("click", function() {
+	  var current = document.getElementsByClassName("active");
+	  current[0].className = current[0].className.replace(" active", "");
+	  this.className += " active";
+	  });
+	}
+</script>
 </html>
