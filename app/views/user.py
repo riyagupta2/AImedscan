@@ -26,7 +26,7 @@ config = PayPalConfig(API_USERNAME = "sb-owxxc294254_api1.business.example.com",
                       API_PASSWORD = "6KB3HNWVPKPX6WLF",
                       API_SIGNATURE = "AHUYoCJn95IHof4ElL51toVL-Xn1AmEiI53OH1DOJ.K94csIxwiaT-GV",
                       DEBUG_LEVEL=0,
-                      API_ENVIRONMENT = "PRODUCTION")
+                      API_ENVIRONMENT = "SANDBOX")
 
 interface = PayPalInterface(config=config)
 
@@ -249,6 +249,9 @@ def paypal_confirm():
     getexp_response = interface.get_express_checkout_details(token=request.args.get('token', ''))
 
     if getexp_response['ACK'] == 'Success':
+        user = models.User.query.filter_by(email=current_user.email).first()
+        user.paid = 1
+        db.session.commit()
         return """
             Everything looks good! <br />
             <a href="%s">Click here to complete the payment.</a>
