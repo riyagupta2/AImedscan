@@ -11,7 +11,7 @@ SQLALCHEMY_DATABASE_URI = 'sqlite:///app.db'
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 
 # Configuration of a Gmail account for sending mails
-MAIL_SERVER = 'email.aimedscan.com'
+MAIL_SERVER = 'smtp.gmail.com'
 MAIL_PORT = 465
 MAIL_USE_TLS = False
 MAIL_USE_SSL = True
