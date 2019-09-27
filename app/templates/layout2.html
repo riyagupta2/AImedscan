@@ -14,7 +14,7 @@ Released   : 20140322
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title></title>
+<title>AIMedscan</title>
 <meta name="keywords" content="aimedscan" />
 <meta name="description" content="Artificial Inteligence base medicle scaning webapp" />
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900|Quicksand:400,700|Questrial" rel="stylesheet" />
@@ -49,18 +49,17 @@ Released   : 20140322
 			<!-- <div id="banner" class="container"><img src="{{ url_for('static', filename='img/logo.png') }}" width="400" height="200" alt="" /></div> -->
 		</div>
 		<div id="menu">
-			<ul>
-				<li class="btn1 active"><a href="/" accesskey="1" title="">Homepage</a></li>
-				<!-- <li><a href="#" accesskey="5" title="">Contact Us</a></li> -->
-
+			<ul class="main">
+				<li class="btn1"><a href="/" accesskey="1" title="">Homepage</a></li>
 				{% if current_user.is_authenticated %}
-				<li class="btn1" ><a href="/user/signout" accesskey="4" title="">Sign out</a></li>
+				<li class="btn2" ><a href="/user/signout" accesskey="4" title="">Sign out</a></li>
 				{% else %}
-				<li class="btn1"><a href="/user/signup" accesskey="2" title="">Sign up</a></li>
-				<li class="btn1"><a href="/user/signin" accesskey="3" title="">Sign in</a></li>
+				<li class="btn3"><a href="/user/signup" accesskey="2" title="">Sign up</a></li>
+				<li class="btn4"><a href="/user/signin" accesskey="3" title="">Sign in</a></li>
 				{% endif %}
 			</ul>
 		</div>
+
 	</div>
 </div>
 {% with messages = get_flashed_messages(category_filter=["positive"]) %}
@@ -103,7 +102,7 @@ Released   : 20140322
 <footer>
 		<script src="{{ url_for('static', filename='js/main.js') }}" type="text/javascript"></script>    
 </footer>
-<script>
+<!-- <script>
 	// Add active class to the current button (highlight it)
 	var header = document.getElementById("menu");
 	var btns = header.getElementsByClassName("btn1");
@@ -114,5 +113,55 @@ Released   : 20140322
 	  this.className += " active";
 	  });
 	}
+</script> -->
+<script>
+$('ul').on('click', 'li', function(){
+	debugger;
+	//element.classList.contains(class);
+     //if($('ul li').classList.contains('active')){}
+	$('ul li').each(function () {
+          
+         if($(this).hasClass('active')){
+			$(this).removeClass('active');
+		 }
+       });
+	
+    $(this).addClass('active');
+});
+
+
+$( document ).ready(function() {
+	debugger;
+
+
+	
+	if($('.active').length > 0)
+	{
+		
+	}
+	else{
+		$('ul li').each(function () {
+          
+		  if($(this).index()==0){
+			$(this).addClass('active');
+		  }
+		});
+	 
+
+	}
+
+});
+
 </script>
+<script>
+		function myFunction() {
+		  var x = document.getElementById("myTopnav");
+		  if (x.className === "topnav") {
+			x.className += " responsive";
+		  } else {
+			x.className = "topnav";
+		  }
+		}
+</script>
+
 </html>
