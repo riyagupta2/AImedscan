@@ -64,8 +64,12 @@ def signup():
         html = render_template('email/confirm.html',
                                confirm_url=confirmUrl)
         # Send the email to user
-        email.send(user.email, subject, html)
-            
+        try:
+            email.send(user.email, subject, html)
+            print("email sent")
+        except SMTPException as e:
+            print("can not send email")
+
         # Send back to the home page
         flash('Check your emails to confirm your email address.', 'positive')
         return redirect(url_for('userbp.signin'))

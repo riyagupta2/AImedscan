@@ -50,12 +50,12 @@ Released   : 20140322
 		</div>
 		<div id="menu">
 			<ul class="main">
-				<li class="btn1"><a href="/" accesskey="1" title="">Homepage</a></li>
+				<li class="btnnn"><a href="/" accesskey="1" title="">Homepage</a></li>
 				{% if current_user.is_authenticated %}
-				<li class="btn2" ><a href="/user/signout" accesskey="4" title="">Sign out</a></li>
+				<li class="btnnn" ><a href="/user/signout" accesskey="4" title="">Sign out</a></li>
 				{% else %}
-				<li class="btn3"><a href="/user/signup" accesskey="2" title="">Sign up</a></li>
-				<li class="btn4"><a href="/user/signin" accesskey="3" title="">Sign in</a></li>
+				<li class="btnnn"><a href="/user/signup" accesskey="2" title="">Sign up</a></li>
+				<li class="btnnn"><a href="/user/signin" accesskey="3" title="">Sign in</a></li>
 				{% endif %}
 			</ul>
 		</div>
@@ -137,11 +137,11 @@ $( document ).ready(function() {
 	
 	if($('.active').length > 0)
 	{
-		
+		debugger;
 	}
 	else{
 		$('ul li').each(function () {
-          
+      debugger;   
 		  if($(this).index()==0){
 			$(this).addClass('active');
 		  }
