@@ -22,9 +22,9 @@ stripe_keys = {
 stripe.api_key = stripe_keys['secret_key']
 
 
-config = PayPalConfig(API_USERNAME = "patel.anuj_api1.tristonsoft.com",
-                      API_PASSWORD = "VTUXWP6HTQPL4SD8",
-                      API_SIGNATURE = "AzePDFitpTlzHvIljivn47AT7sHUAnHZ1Jo3LQjDmkCBCD5XtyTA-fB4",
+config = PayPalConfig(API_USERNAME = "sb-owxxc294254_api1.business.example.com",
+                      API_PASSWORD = "6KB3HNWVPKPX6WLF",
+                      API_SIGNATURE = "AHUYoCJn95IHof4ElL51toVL-Xn1AmEiI53OH1DOJ.K94csIxwiaT-GV",
                       DEBUG_LEVEL=0,
                       API_ENVIRONMENT = "PRODUCTION")
 
