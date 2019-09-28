@@ -61,7 +61,7 @@ def signup():
         # Build a confirm link with token
         confirmUrl = url_for('userbp.confirm', token=token, _external=True)
         # Render an HTML template to send by email
-        html = render_template('email/confirm.html',
+        html = render_template('email/confirm.txt',
                                confirm_url=confirmUrl)
         
         # Send the email to user
