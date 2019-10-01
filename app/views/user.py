@@ -13,6 +13,15 @@ from json import dumps
 from paypal import PayPalConfig
 from paypal import PayPalInterface
 #import paypalrestsdk
+import smtplib
+from smtplib import SMTPException
+from app import app, mail
+
+from flask_mail import Message
+
+import os
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 
 # stripe_keys = {
@@ -67,14 +76,25 @@ def signup():
         # Build a confirm link with token
         confirmUrl = url_for('userbp.confirm', token=token, _external=True)
         # Render an HTML template to send by email
-        html = render_template('email/confirm.txt',
+        html = render_template('email/confirm.html',
                                confirm_url=confirmUrl)
-        html1 = "please click on the below link."
-        html1 += confirmUrl
-            
+        message = Mail(
+            from_email='reach@aimedscan.com',
+            to_emails='riyagupta@tristonsoft.com',
+            subject='Sending with Twilio SendGrid is Fun',
+            html_content=render_template('email/confirm.html',
+                               confirm_url=confirmUrl))
+        try:
+            sg = SendGridAPIClient('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')
+            response = sg.send(message)
+            print(response.status_code)
+            print(response.body)
+            print(response.headers)
+        except Exception as e:
+            print(e.message)
         # Send the email to user
         try:
-            email.send(user.email, subject, html1)
+            email.send(user.email, subject, html)
             print("email sent")
         except SMTPException as e:
             print("can not send email")
@@ -156,9 +176,7 @@ def forgot():
             # Build a reset link with token
             resetUrl = url_for('userbp.reset', token=token, _external=True)
             # Render an HTML template to send by email
-            #html = render_template('email/reset.html', reset_url=resetUrl)
-            html1 = "please click on the below link."
-            html1 += confirm_url
+            html = render_template('email/reset.html', reset_url=resetUrl)
             # Send the email to user
             email.send(user.email, subject, html)
             # Send back to the home page

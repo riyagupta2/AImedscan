@@ -1,7 +1,9 @@
 from threading import Thread
 from flask.ext.mail import Message
 from app import app, mail
+import smtplib
 
+from email.mime.text import MIMEText
 
 def send(recipient, subject, body):
     '''
