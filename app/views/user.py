@@ -80,8 +80,8 @@ def signup():
                                confirm_url=confirmUrl)
         message = Mail(
             from_email='reach@aimedscan.com',
-            to_emails='riyagupta@tristonsoft.com',
-            subject='Sending with Twilio SendGrid is Fun',
+            to_emails=user.email,
+            subject=subject,
             html_content=render_template('email/confirm.html',
                                confirm_url=confirmUrl))
         try:
@@ -93,11 +93,11 @@ def signup():
         except Exception as e:
             print(e.message)
         #Send the email to user
-        try:
-            email.send(user.email, subject, html)
-            print("email sent")
-        except SMTPException as e:
-            print("can not send email")
+        # try:
+        #     #email.send(user.email, subject, html)
+        #     print("email sent")
+        # except SMTPException as e:
+        #     print("can not send email")
 
         # Send back to the home page
         flash('Check your emails to confirm your email address.', 'positive')
