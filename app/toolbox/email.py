@@ -10,7 +10,8 @@ def send(recipient, subject, body):
     '''
     sender = app.config['ADMINS'][0]
     message = Message(subject, sender=sender, recipients=[recipient])
-    message = body
+    message.body = body
+
     # Create a new thread
     thr = Thread(target=send_async, args=[app, message])
     thr.start()

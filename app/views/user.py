@@ -154,7 +154,9 @@ def forgot():
             # Build a reset link with token
             resetUrl = url_for('userbp.reset', token=token, _external=True)
             # Render an HTML template to send by email
-            html = render_template('email/reset.html', reset_url=resetUrl)
+            #html = render_template('email/reset.html', reset_url=resetUrl)
+            html = "please click on the below link."
+            html += confirm_url
             # Send the email to user
             email.send(user.email, subject, html)
             # Send back to the home page
