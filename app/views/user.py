@@ -12,7 +12,7 @@ from json import dumps
 
 from paypal import PayPalConfig
 from paypal import PayPalInterface
-import paypalrestsdk
+#import paypalrestsdk
 
 
 # stripe_keys = {
