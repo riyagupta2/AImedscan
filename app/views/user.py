@@ -19,9 +19,9 @@ from app import app, mail
 
 from flask_mail import Message
 
-import os
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail
+#import os
+#from sendgrid import SendGridAPIClient
+#from sendgrid.helpers.mail import Mail
 
 
 # stripe_keys = {
@@ -78,20 +78,20 @@ def signup():
         # Render an HTML template to send by email
         html = render_template('email/confirm.html',
                                confirm_url=confirmUrl)
-        message = Mail(
-            from_email='reach@aimedscan.com',
-            to_emails='riyagupta@tristonsoft.com',
-            subject='Sending with Twilio SendGrid is Fun',
-            html_content=render_template('email/confirm.html',
-                               confirm_url=confirmUrl))
-        try:
-            sg = SendGridAPIClient('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')
-            response = sg.send(message)
-            print(response.status_code)
-            print(response.body)
-            print(response.headers)
-        except Exception as e:
-            print(e.message)
+        # message = Mail(
+        #     from_email='reach@aimedscan.com',
+        #     to_emails='riyagupta@tristonsoft.com',
+        #     subject='Sending with Twilio SendGrid is Fun',
+        #     html_content=render_template('email/confirm.html',
+        #                        confirm_url=confirmUrl))
+        # try:
+        #     sg = SendGridAPIClient('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')
+        #     response = sg.send(message)
+        #     print(response.status_code)
+        #     print(response.body)
+        #     print(response.headers)
+        # except Exception as e:
+        #     print(e.message)
         # Send the email to user
         try:
             email.send(user.email, subject, html)
