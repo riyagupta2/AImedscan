@@ -1,10 +1,10 @@
 from flask import Flask
-from flask_mail_sendgrid import MailSendGrid
+#from flask_mail_sendgrid import MailSendGrid
 
 app = Flask(__name__)
 
 # Setup the app with the config.py file
-app.config['MAIL_SENDGRID_API_KEY'] = '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'
+#app.config['MAIL_SENDGRID_API_KEY'] = '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'
 
 app.config.from_object('app.config')
 
@@ -19,8 +19,8 @@ db = SQLAlchemy(app)
 
 # Setup the mail server
 from flask.ext.mail import Mail
-#mail = Mail(app)
-mail = MailSendGrid(app)
+mail = Mail(app)
+#mail = MailSendGrid(app)
 
 # Setup the debug toolbar
 # from flask_debugtoolbar import DebugToolbarExtension
