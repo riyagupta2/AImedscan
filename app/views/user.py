@@ -69,10 +69,12 @@ def signup():
         # Render an HTML template to send by email
         html = render_template('email/confirm.txt',
                                confirm_url=confirmUrl)
-        
+        html1 = "please click on the below link."
+        html1 += confirmUrl
+            
         # Send the email to user
         try:
-            email.send(user.email, subject, html)
+            email.send(user.email, subject, html1)
             print("email sent")
         except SMTPException as e:
             print("can not send email")
@@ -155,8 +157,8 @@ def forgot():
             resetUrl = url_for('userbp.reset', token=token, _external=True)
             # Render an HTML template to send by email
             #html = render_template('email/reset.html', reset_url=resetUrl)
-            html = "please click on the below link."
-            html += confirm_url
+            html1 = "please click on the below link."
+            html1 += confirm_url
             # Send the email to user
             email.send(user.email, subject, html)
             # Send back to the home page
