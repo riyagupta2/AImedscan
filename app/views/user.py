@@ -1,5 +1,5 @@
 from flask import (Blueprint, render_template, redirect, request, url_for,
-                   abort, flash)
+                   abort, flash,jsonify )
 from flask.ext.login import login_user, logout_user, login_required, current_user
 from itsdangerous import URLSafeTimedSerializer
 from app import app, models, db
@@ -12,21 +12,27 @@ from json import dumps
 
 from paypal import PayPalConfig
 from paypal import PayPalInterface
+import paypalrestsdk
 
 
-stripe_keys = {
-	'secret_key': "sk_test_zJuSsNUL5yB4Vy0irwY0urHe",
-	'publishable_key': "pk_test_9h0f2uum2Ym96ZlIky9Cbuwh"
-}
+# stripe_keys = {
+# 	'secret_key': "sk_test_zJuSsNUL5yB4Vy0irwY0urHe",
+# 	'publishable_key': "pk_test_9h0f2uum2Ym96ZlIky9Cbuwh"
+# }
 
-stripe.api_key = stripe_keys['secret_key']
+# stripe.api_key = stripe_keys['secret_key']
 
 
-config = PayPalConfig(API_USERNAME = "sb-owxxc294254_api1.business.example.com",
-                      API_PASSWORD = "6KB3HNWVPKPX6WLF",
-                      API_SIGNATURE = "AHUYoCJn95IHof4ElL51toVL-Xn1AmEiI53OH1DOJ.K94csIxwiaT-GV",
+config = PayPalConfig(API_USERNAME = "malleswar_api1.praise-tech.com",
+                      API_PASSWORD = "R3RV7QDC78BY4XVC",
+                      API_SIGNATURE = "ARfxBoFTKjG9iqDKA3aAlDEk9ElWADpqZqgjMJcJ17PUADfIUh1kgrXp",
                       DEBUG_LEVEL=0,
-                      API_ENVIRONMENT = "SANDBOX")
+                      API_ENVIRONMENT = "PRODUCTION")
+
+# paypalrestsdk.configure({
+#   "mode": "live", # sandbox or live
+#   "client_id": "AUtXI41eXk-7O6Eiam6s3p0wb08bd6nra4oOiRFPxFpFgJ_xgzqOtZ8gCZgvNPU_0icbcXfGw_mXC7W9",
+#   "client_secret": "EOILOIjnfXX63VqwMMOYX1_sfyiS-RikxfNkoQa6fqOQaT4CzrNp-DSc_dYJhb2RjqJUEqiWVyxOAOSu" })
 
 interface = PayPalInterface(config=config)
 
@@ -301,3 +307,48 @@ def paypal_status(token):
 @app.route("/paypal/cancel")
 def paypal_cancel():
     return redirect(url_for('index'))
+
+
+@app.route('/payment', methods=['POST'])
+def payment():
+
+    payment = paypalrestsdk.Payment({
+        "intent": "sale",
+        "payer": {
+            "payment_method": "paypal"},
+        "redirect_urls": {
+            "return_url": "/payment/execute",
+            "cancel_url": "/"},
+        "transactions": [{
+            "item_list": {
+                "items": [{
+                    "name": "testitem",
+                    "sku": "12345",
+                    "price": "500.00",
+                    "currency": "USD",
+                    "quantity": 1}]},
+            "amount": {
+                "total": "500.00",
+                "currency": "USD"},
+            "description": "This is the payment transaction description."}]})
+
+    if payment.create():
+        print('Payment success!')
+    else:
+        print(payment.error)
+
+    return jsonify({'paymentID' : payment.id})
+
+@app.route('/execute', methods=['POST'])
+def execute():
+    success = False
+
+    payment = paypalrestsdk.Payment.find(request.form['paymentID'])
+
+    if payment.execute({'payer_id' : request.form['payerID']}):
+        print('Execute success!')
+        success = True
+    else:
+        print(payment.error)
+
+    return jsonify({'success' : success})
