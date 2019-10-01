@@ -134,10 +134,14 @@ def signin():
         if user is not None:
             # Check the password is correct
             if user.check_password(form.password.data):
-                login_user(user)
-                # Send back to the home page
-                flash('Succesfully signed in.', 'positive')
-                return redirect(url_for('index'))
+                if user.confirmation == True:
+                    login_user(user)
+                    # Send back to the home page
+                    flash('Succesfully signed in.', 'positive')
+                    return redirect(url_for('index'))
+                else:
+                    flash('Please confirm your Email address', 'negative')
+                    return redirect(url_for('userbp.signin'))    
             else:
                 #error = 'The password you have entered is wrong.'
                 flash('The password you have entered is wrong.', 'negative')
@@ -178,7 +182,21 @@ def forgot():
             # Render an HTML template to send by email
             html = render_template('email/reset.html', reset_url=resetUrl)
             # Send the email to user
-            email.send(user.email, subject, html)
+            
+            message = Mail(
+                from_email='reach@aimedscan.com',
+                to_emails=user.email,
+                subject=subject,
+                html_content=render_template('email/reset.html', reset_url=resetUrl))
+            try:
+                sg = SendGridAPIClient('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')
+                response = sg.send(message)
+                print(response.status_code)
+                print(response.body)
+                print(response.headers)
+            except Exception as e:
+                print(e.message)
+            #email.send(user.email, subject, html)
             # Send back to the home page
             flash('Check your emails to reset your password.', 'positive')
             return redirect(url_for('index'))
