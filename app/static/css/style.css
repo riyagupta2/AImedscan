@@ -40,7 +40,9 @@ input:hover, input:focus {
 /* line 18, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_common.scss */
 .section_padding {
   padding: 160px 0px;
-  flex: 1 0 auto;
+ 
+}
+.fixed-footer{flex: 1 0 auto;
 }
 .padiing-remove{padding: 0;margin: 0;}
 
