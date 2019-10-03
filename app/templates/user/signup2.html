@@ -1,42 +1,66 @@
 {% extends "layout2.html" %}
-
+        
 {% block content %}
-<div class="wrapper">
-		<div class="container">
+ <!-- ================ Signup section start ================= -->
+ <section class="contact-section section_padding">
+  <div class="container">
+    
 
-				<div class="sign-in-form-main">
-					<div class="col-lg-6 col-md-offset-3">
-				<form class="ui form" action="/user/signup" method="post">
-					<h4 class="ui dividing header heading-main">Signup</h4>
-					<!-- {% with messages = get_flashed_messages(with_categories=true) %}
-						{% if messages %}
-							<ul class=flashes>
-							 {% for category, message in messages %} -->
-							<!--<div class="alert alert-success alert-dismissible fade show" role="alert">
-								<span>{{ messages }}</span>
-								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							 <li class="alert{{ category }}" >{{ message|capitalize }}</li> -->
-							<!-- {% endfor %} -->
-							<!--</ul>
-						{% endif %}
-					{% endwith %}			 -->
-					{{ m.render_field(form.first_name) }}
-					{{ m.render_field(form.last_name) }}
-					{{ m.render_field(form.phone) }}
-					{{ m.render_field(form.email) }}
-					{{ m.render_field(form.password) }}
-					{{ m.render_field(form.confirm) }}
-					{{ form.csrf_token }}
-					<input type="submit" class="submit-signin-btn">
-					 
-				</form>
-			</div>
-			</div>
-			</div>
-		</div>
-	</div>
-</div>
+    <div class="row">
+      <div class="col-12">
+         
+        
+        <h2 class="contact-title">Signin</h2>
+      </div>
+      <div class="col-lg-8">
+        <form class="form-contact contact_form" action="/user/signup" method="post" 
+          novalidate="novalidate">
+          <div class="row">
+              <div class="col-sm-9">
+                  <div class="form-group">
+                    {{ form.first_name(class_='form-control',placeholder='First name') }}
+                  </div>
+                   {% if form.first_name.errors %}
+                      <ul class="errors">{% for error in form.first_name.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+                   {% endif %}
+                  <div class="form-group">  
+                    {{ form.last_name(class_='form-control',placeholder='Last name') }}
+                  </div>
+                  {% if form.last_name.errors %}
+                      <ul class="errors">{% for error in form.last_name.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+                   {% endif %}
+                  <div class="form-group">  
+                    {{ form.phone(class_='form-control',placeholder='Phone Number') }}
+                  </div>
+                  {% if form.phone.errors %}
+                      <ul class="errors">{% for error in form.phone.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+                   {% endif %}
+                  <div class="form-group">  
+                    {{ form.email(class_='form-control',placeholder='Email address') }}
+                  </div>
+                  {% if form.email.errors %}
+                      <ul class="errors">{% for error in form.email.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+                   {% endif %}
+                  <div class="form-group">
+                    {{ form.password(class_='form-control',placeholder='Password') }}
+                  </div>
+                  {% if form.password.errors %}
+                      <ul class="errors">{% for error in form.password.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+                   {% endif %}
+                  <div class="form-group">  
+                    {{ form.confirm(class_='form-control',placeholder='Confirm password') }}
+                    {{ form.csrf_token }}
+                  </div>
+                  <div class="form-group">
+            <div class="form-group mt-3">
+              <input type="submit" class="button button-contactForm btn_1">
+              <p>Already a User? please <a href="/user/signin">Signin</a></p>
+            </div>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </section> 
+ 
 {% endblock %}

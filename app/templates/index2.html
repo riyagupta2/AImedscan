@@ -1,67 +1,80 @@
 {% extends "layout2.html" %}
 {% block content %}
-	
 {% if current_user.is_authenticated %}
-<div class="wrapper">
-	
-	<div>
-		<div class="col-lg-6 col-md-offset-3"> 
-		<form id="upload-file" method="post" enctype="multipart/form-data">
-				<h4>Please upload Image to get the prediction</h4>
-				<label for="imageUpload" class="upload-label">
-					Select Image
-				</label>
-				<input type="file" style="display:none;" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
-		</form>
+<section class="banner_part ">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="banner_text upload-image">
+                    <div class="banner_text_iner">
+                        <form id="upload-file" method="post" enctype="multipart/form-data">
+                            <h4 class="upload-image-title">Please upload Image to get the prediction</h4>
+                            <label for="imageUpload" class="upload-label">
+                                Select Image
+                            </label>
+                            <input type="file" style="display:none;" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
+                        </form>
 		
-			<div class="image-section" style="display:none;">
-				<div class="img-preview">
-					<div id="imagePreview">
-					</div>
-				</div>
-				{% if not current_user.paid %}
-					<a href="/paypal/redirect">
-						<button type="button"  class="btn btn-primary btn-lg "> Pay here</button>
-					</a>
-				{% else %}
-					<div>
-						<button type="button" class="btn btn-primary btn-lg " id="btn-predict">Predict!</button>
-					</div>
-				{% endif %}
-			</div>
-		
-			<div class="loader" style="display:none;"></div>
-			<h3 id="result">
-				<span> </span>
-			</h3>
-			
+                        <div class="image-section" style="display:none;">
+                            <div class="img-preview">
+                                <div id="imagePreview">
+                                </div>
+                            </div>
+                            {% if not current_user.paid %}
+                                <a href="/paypal/redirect">
 
-		</div>
-		</div>
+                                    <button type="button"  class="btn btn-primary btn-lg "> Pay here</button>
 
-</div>
+
+
+                                </a>
+                            {% else %}
+                                <div>
+                                    <button type="button" class="btn btn-primary btn-lg " id="btn-predict">Predict!</button>
+
+
+                                 
+                                </div>
+                            {% endif %}
+                        </div>
+                    
+                        <div class="loader" style="display:none;"></div>
+                        <h3 id="result">
+                            <span> </span>
+                        </h3>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</section>
 	
 {% else %}
-<div class="wrapper">
-	<div class="container">
 
-		<div class="sign-in-form-main">
-			<div class="col-lg-6 col-md-offset-3">
+<section class="banner_part">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 col-xl-5">
+                <div class="banner_text">
+                    <div class="banner_text_iner">
+                        <!-- <h5>AI Powered Medical Scanning Application</h5> -->
+                        <h1>AI Powered
+                                Medical Scanning Application</h1>
+                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit sed do eiusmod tempor incididunt ut labore et dolore
+                            magna aliqua. Quis ipsum suspendisse ultrices gravida.Risus cmodo viverra </p> -->
+                        <a href="/user/signup" class="btn_2">Lets Get started</a>
 
-				<div id="banner" class="container">
-					<img src="{{ url_for('static', filename='img/banner2.jpg') }}" alt="" />
-					<div class="title" style="margin-left: 120px; margin-top: 70px;">
-						<h2>Welcome to our website</h2>
-					</div>
-					<p>This is AI based medical scanning web based application for the chest x-ray Images to detect pnuemonia.
-
-				</div>
-				
-		
-	</div>
-	</div>
-	</div>
-	</div>
-	
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="banner_img">
+                    <img src="{{ url_for('static', filename='img/banner_img.png')}}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endif %}
 {% endblock %}

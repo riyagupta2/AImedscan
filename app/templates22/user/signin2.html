@@ -1,0 +1,29 @@
+{% extends "layout2.html" %}
+
+{% block content %}
+<div class="wrapper">
+
+	<div class="container">
+
+		<div class="sign-in-form-main">
+			<div class="col-lg-6 col-md-offset-3">
+			
+		<form class="ui form" action="/user/signin" method="post">
+			<h4 class="ui dividing header heading-main">Login</h4>
+			
+
+			{{ m.render_field(form.email) }}
+	    	{{ m.render_field(form.password) }}
+		  	{{ form.csrf_token }}
+		  	<input type="submit" class="submit-signin-btn">
+		  	<a href="/user/forgot">
+			  	<div class="ui floated right basic red button forgot-btn">
+	        		I forgot my password
+	    		</div>
+	    	</a>
+		</form>
+	</div>
+	</div>
+	</div>
+</div>
+{% endblock %}

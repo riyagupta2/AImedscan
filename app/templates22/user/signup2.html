@@ -1,0 +1,42 @@
+{% extends "layout2.html" %}
+
+{% block content %}
+<div class="wrapper">
+		<div class="container">
+
+				<div class="sign-in-form-main">
+					<div class="col-lg-6 col-md-offset-3">
+				<form class="ui form" action="/user/signup" method="post">
+					<h4 class="ui dividing header heading-main">Signup</h4>
+					<!-- {% with messages = get_flashed_messages(with_categories=true) %}
+						{% if messages %}
+							<ul class=flashes>
+							 {% for category, message in messages %} -->
+							<!--<div class="alert alert-success alert-dismissible fade show" role="alert">
+								<span>{{ messages }}</span>
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							 <li class="alert{{ category }}" >{{ message|capitalize }}</li> -->
+							<!-- {% endfor %} -->
+							<!--</ul>
+						{% endif %}
+					{% endwith %}			 -->
+					{{ m.render_field(form.first_name) }}
+					{{ m.render_field(form.last_name) }}
+					{{ m.render_field(form.phone) }}
+					{{ m.render_field(form.email) }}
+					{{ m.render_field(form.password) }}
+					{{ m.render_field(form.confirm) }}
+					{{ form.csrf_token }}
+					<input type="submit" class="submit-signin-btn">
+					 
+				</form>
+			</div>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

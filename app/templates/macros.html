@@ -15,8 +15,12 @@
 
 <!-- Render a WTForm form's field (with it's possible associated errors) from a WTForms form -->
 {% macro render_field(field) %}
-	<div class="field">
-		{{ field(name_=field.name, id=field.name, placeholder=field.description, class_="field") }}
+	<!-- <div class="field"> -->
+	<div class="col-sm-9">
+		<div class="form-group">
+				
+			{{ field(name_=field.name, id=field.name, placeholder=field.description, class_="form-group") }}
+		</div>
 	</div>
   	{% if field.errors %}
     	<ul>

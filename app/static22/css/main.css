@@ -34,6 +34,7 @@ input[type="file"] {
     background: #34495E;
     color: #2056ac;
 }
+.banner-image{display: table;margin: 0 auto;text-align: center;}
 
 .loader {
     border: 8px solid #f3f3f3; /* Light grey */
