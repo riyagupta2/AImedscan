@@ -21,11 +21,12 @@ body {
   margin: 0;
   font-size: 14px;
 }
-.body{
+body{
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
+
 /* line 9, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_common.scss */
 .message_submit_form:focus {
   outline: none;
