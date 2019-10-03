@@ -2,13 +2,13 @@
 
 {% block content %}
 
-
+<div class="container">
   <section class="contact-section section_padding">
-      <div class="container">
+
         
   
         <div class="row">
-          <div class="col-12">
+          <div class="col-lg-8">
               
             
             <h2 class="contact-title">Signin</h2>
@@ -18,7 +18,7 @@
             <form class="form-contact contact_form" action="/user/signin" method="post" 
               novalidate="novalidate">
               <div class="row">
-                  <div class="col-sm-9">
+                  <div class="col-sm-12">
                       <div class="form-group">
                           
                           {{ form.email(class_='form-control',placeholder='Enter Email Address')}}
@@ -41,7 +41,7 @@
                         <ul class="errors">{% for error in form.password.errors %}<li>{{ error }}</li>{% endfor %}</ul>
                       {% endif %}
                     </div>
-                <div class="col-sm-9">
+                <div class="col-sm-12">
                   <div class="form-group">
                      
                   </div>

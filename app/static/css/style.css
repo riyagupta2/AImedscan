@@ -39,34 +39,35 @@ input:hover, input:focus {
 
 /* line 18, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_common.scss */
 .section_padding {
-  padding: 140px 0px;
+  padding: 160px 0px;
 }
+.padiing-remove{padding: 0;margin: 0;}
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   /* line 18, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_common.scss */
   .section_padding {
-    padding: 80px 0px;
+    padding: 154px 0px;
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   /* line 18, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_common.scss */
   .section_padding {
-    padding: 70px 0px;
+     padding: 123px 0px; 
   }
 }
 
 @media (max-width: 576px) {
   /* line 18, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_common.scss */
   .section_padding {
-    padding: 70px 0px;
+    padding: 125px 0px;
   }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   /* line 18, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_common.scss */
   .section_padding {
-    padding: 70px 0px;
+    padding: 125px 0px;
   }
 }
 
@@ -5497,7 +5498,12 @@ h1, h2, h3, h4, h5, h6 {
     padding-bottom: 50px;
   }
 }
-
+@media(max-width:480px){
+  .message-alert {
+   
+    padding: 13px 6px;
+}
+}
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   /* line 2, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_blog_part.scss */
   .blog_part {
@@ -5890,6 +5896,11 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 12px;
   height: 100% !important;
 }
+.message-alert {
+  margin-top: 0px;
+  position: absolute;
+  width: 100%;
+}
 
 @media (max-width: 576px) {
   /* line 89, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_contact.scss */
@@ -6049,7 +6060,7 @@ h1, h2, h3, h4, h5, h6 {
 /* line 2, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_footer.scss */
 .footer-area {
   background-color: #f3f6f7;
-  position: fixed;
+  position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
