@@ -45,7 +45,7 @@ input:hover, input:focus {
 .fixed-footer{flex: 1 0 auto;
 }
 .padiing-remove{padding: 0;margin: 0;}
-
+.message{padding-bottom: 20px;}
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   /* line 18, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_common.scss */
   .section_padding {
@@ -63,7 +63,7 @@ input:hover, input:focus {
 @media (max-width: 576px) {
   /* line 18, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_common.scss */
   .section_padding {
-    padding: 125px 0px;
+    padding: 150px 0px;
   }
 }
 
