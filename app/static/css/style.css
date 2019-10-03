@@ -2509,7 +2509,7 @@ ul {
 @media (max-width: 991px) {
   /* line 2, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_banner.scss */
   .banner_part {
-    background-image: none;
+    /* background-image: none; */
     background-color: #f7f7f7;
     height: 650px;
   }
