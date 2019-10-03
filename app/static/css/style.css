@@ -304,6 +304,10 @@ a:focus, .button:focus, button:focus, .btn:focus {
   margin-bottom: 28px;
 }
 
+.body{    display: flex;
+  flex-direction: column;
+  height: 100vh;}
+  
 @media (max-width: 991px) {
   /* line 156, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_common.scss */
   .section_tittle h2 {
