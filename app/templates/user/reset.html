@@ -1,0 +1,62 @@
+{% extends "layout2.html" %}
+
+{% block content %}
+
+
+  <section class="contact-section section_padding">
+      <div class="container">
+        
+  
+        <div class="row">
+          <div class="col-12">
+            <h2 class="contact-title">Reset passowrd</h2>
+          </div>
+          
+          <div class="col-lg-8">
+            <form class="form-contact contact_form" action="{{ url_for('userbp.reset', token=token) }}" method="post" 
+              novalidate="novalidate">
+              <div class="row">
+                  <div class="col-sm-12">
+                      <div class="form-group">
+                          
+                          {{ form.password(class_='form-control',placeholder='new password')}}
+                          
+                      </div>
+                      {% if form.password.errors %}
+                        <ul class="errors">{% for error in form.password.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+                      {% endif %}
+                     
+                      <div class="form-group">
+                          
+                        {{ form.confirm(class_='form-control',placeholder='confirm password')}}
+                        
+                    </div>
+                    {% if form.confirm.errors %}
+                      <ul class="errors">{% for error in form.confirm.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+                    {% endif %}
+                    {{ form.csrf_token }}
+              
+             
+              </div>
+              <div class="">
+              <div class="col-sm-12">
+              <div class="form-group ">
+                <button type="submit" class="button button-contactForm btn_1">Submit</button>
+               
+               
+                <!-- <button type="submit" class="button button-contactForm btn_1">I forgot my password</button> -->
+              </div>
+             
+            </div>
+          </div>
+            </form>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+ 
+{% endblock %}
+
+                   
