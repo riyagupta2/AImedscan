@@ -19,7 +19,7 @@ Flask-SQLAlchemy==2.1
 Flask-WTF==0.12
 gevent==1.2.2
 greenlet==0.4.15
-gunicorn==19.4.5
+gunicorn==19.5.0
 h5py==2.7.0
 html5lib==0.9999999
 idna==2.8
