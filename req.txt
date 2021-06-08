@@ -29,7 +29,7 @@ MarkupSafe==1.1.1
 numpy==1.14.2
 olefile==0.46
 paypal==1.2.5
-Pillow==4.3.0
+Pillow==8.2.0
 protobuf==3.9.2
 pycparser==2.19
 pytz==2016.10
